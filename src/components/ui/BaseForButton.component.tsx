@@ -1,11 +1,14 @@
 import { FC } from "react";
 
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 import styles from "@/styles/components/ui/BaseForButton.module.scss";
 
 type BaseForButtonProps = {
-  [key: string]: string;
+  image: StaticImageData;
+  width: string;
+  height: string;
+  text: string;
 };
 
 const BaseForButton: FC<BaseForButtonProps> = ({

@@ -1,0 +1,111 @@
+.container {
+    display: flex;
+    align-items: center;
+    padding: 0px 75px;
+
+    .wrapper_1 {
+        display: flex;
+        align-items: center;
+        padding-top: 27px;
+
+        .input {
+            display: flex;
+            align-items: center;
+            background: #E7E9EB;
+            border-radius: 25px;
+            width: 200px;
+            height: 56px;
+
+            input {
+                border: none;
+                outline: none;
+                background: #E7E9EB;
+                border-radius: 25px;
+                height: 100%;
+                width: 100%;
+                font-size: 18px;
+
+
+                &::placeholder {
+                    color: #11293B;
+                    font-weight: 400;
+                    font-size: 18px;
+                }
+            }
+
+            img {
+                margin: 0px 10px 0px 19px
+            }
+
+        }
+
+        :first-child {
+            margin-right: 10px
+        }
+    }
+
+    .wrapper_2 {
+        padding-top: 23px;
+        margin-left: 190px;
+        text-align: center;
+
+        p {
+            font-weight: 500;
+            font-size: 23px;
+            line-height: 34px;
+            color: #000000;
+        }
+    }
+
+    .wrapper_3 {
+        display: flex;
+        align-items: center;
+        margin: 35px 0px 0px 194px;
+
+
+        .icons {
+            margin-right: 46px;
+
+            img {
+                cursor: pointer;
+            }
+
+            :nth-child(2) {
+                margin: 0px 29px
+            }
+        }
+
+        .currency {
+            display: flex;
+            align-items: center;
+
+            div {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                background: #E7E9EB;
+                border-radius: 25px;
+
+                width: 70px;
+                height: 30px;
+
+                cursor: pointer;
+
+                &:first-child {
+                    margin-right: 10px;
+                }
+
+                img {
+                    margin: 0px 0px 5px 6px;
+                }
+
+                p {
+                    font-weight: 400;
+                    font-size: 12px;
+                    line-height: 15px;
+                }
+            }
+        }
+    }
+}
