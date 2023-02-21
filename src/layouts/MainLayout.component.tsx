@@ -1,11 +1,11 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 
 import Header from "@/components/shared/Header.component";
 
 import styles from "@/styles/layouts/MainLayout.module.scss";
 
 type MainLayoutProps = {
-  children: any;
+  children: ReactNode;
 };
 
 const MainLayout: FC<MainLayoutProps> = ({ children }) => {

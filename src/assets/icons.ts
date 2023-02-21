@@ -5,6 +5,7 @@ import user from "./Header/User.png";
 import cart from "./Header/Cart.png";
 import heart from "./Header/Heart.png";
 import arrow from "./Header/arrow.png";
+import buttonArrow from "./SneakerPanel/buttonArrow.jpg"
 
 export default {
   searchIcon,
@@ -14,4 +15,5 @@ export default {
   cart,
   heart,
   arrow,
+  buttonArrow
 };
