@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 
 import BaseForButton from "../ui/BaseForButton.component";
 
-import icons from "@/assets/icons";
+import icons from "@/assets/Header/icons";
 
 import styles from "@/styles/components/shared/Header.module.scss";
 

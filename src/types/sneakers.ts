@@ -1,4 +1,4 @@
-import sneakers from "@/assets/sneakers"
+import sneakers from "@/assets/Sneakers/sneakers"
 
 export type Sneakers = {
       map: any

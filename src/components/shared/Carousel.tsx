@@ -1,9 +1,9 @@
 import { useEffect, useState, Children, cloneElement } from "react";
 
 import styles from "@/styles/components/shared/carousel.module.scss";
+import ArrowSvg from "../ui/ArrowSvg.component";
 
 type Props = {
-  view: string;
   children: JSX.Element[];
 };
 
@@ -12,7 +12,7 @@ const Carousel: React.FC<Props> = ({ children }) => {
   const [offset, setOffset] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
 
-  const page_width = 1100;
+  const page_width = 1038;
 
   useEffect(() => {
     setCurrentPage(Math.abs(offset / page_width));
@@ -60,17 +60,13 @@ const Carousel: React.FC<Props> = ({ children }) => {
           {pages}
         </div>
       </div>
-      <div className={styles.dots}>
-        {pages.map((_item: undefined, index?: string) => (
-          <button
-            key={index}
-            className={
-              index == String(currentPage)
-                ? styles.button_active
-                : styles.button
-            }
-          />
-        ))}
+      <div className={styles.arrows}>
+        <div onClick={() => handleClickLeft()}>
+          <ArrowSvg fill="#11293B" />
+        </div>
+        <div onClick={() => handleClickRight()}>
+          <ArrowSvg fill="#11293B" />
+        </div>
       </div>
     </div>
   );

@@ -43,12 +43,31 @@
             font-weight: 400;
             font-size: 20px;
             line-height: 27px;
+            user-select: none;
 
-            img {
+            svg {
                 margin-left: 10px;
             }
         }
     }
 
-    .wrapper_2 {}
+    .wrapper_2 {
+        position: relative;
+
+        img {
+            position: absolute;
+            bottom: 0px;
+            right: 58px;
+            user-select: none;
+        }
+
+        p {
+            font-weight: 700;
+            font-size: 307px;
+            line-height: 460px;
+            color: #F5CF94;
+            user-select: none;
+            margin-right: 25px;
+        }
+    }
 }

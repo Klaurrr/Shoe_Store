@@ -1,13 +1,16 @@
 import React, { FC } from "react";
 
+import ArrowSvg from "./ArrowSvg.component";
+import sneakerPanel from "@/assets/SneakerPanel/sneakerPanel";
+
 import styles from "@/styles/components/ui/SneakerPanel.module.scss";
-import icons from "@/assets/icons";
 
 type Props = {
   background: string;
 };
 
 const SneakerPanel: FC<Props> = ({ background }) => {
+  //TODO: Сделать такой текст, который будет меняться под цвет фона.
   return (
     <div className={styles.container} style={{ background }}>
       <div className={styles.wrapper_1}>
@@ -17,10 +20,13 @@ const SneakerPanel: FC<Props> = ({ background }) => {
         <p className={styles.subtitle}>Luxury meets ultimate sitting comfort</p>
         <button className={styles.button} style={{ color: background }}>
           Discover
-          <img src={icons.buttonArrow.src} alt="buttonArrow-img" />
+          <ArrowSvg fill={background} />
         </button>
       </div>
-      <div className={styles.wrapper_2}></div>
+      <div className={styles.wrapper_2}>
+        <p>Hot</p>
+        <img src={sneakerPanel.legs.src} alt="legs-img" />
+      </div>
     </div>
   );
 };
