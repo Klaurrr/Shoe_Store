@@ -4,7 +4,6 @@ import MainLayout from "@/layouts/MainLayout.component";
 
 import { Sneakers } from "@/types/sneakers";
 
-import sneakersImage from "@/assets/Sneakers/sneakers";
 import SneakerPanel from "@/components/ui/SneakerPanel.component";
 import Carousel from "@/components/shared/Carousel";
 
@@ -22,11 +21,10 @@ const Home: FC<{ sneakers: Sneakers }> = ({ sneakers }) => {
   return (
     <MainLayout>
       <Carousel>
-        <SneakerPanel background={"#FFE2B5"} />
-        <SneakerPanel background={"red"} />
-        <SneakerPanel background={"green"} />
-        <SneakerPanel background={"blue"} />
-        <SneakerPanel background={"aqua"} />
+        <SneakerPanel background={"rgb(100%, 89%, 71%)"} />
+        <SneakerPanel background={"rgb(47%, 89%, 59%)"} />
+        <SneakerPanel background={"rgb(96%, 90%, 100%)"} />
+        <SneakerPanel background={"rgb(41%, 92%, 92%)"} />
       </Carousel>
     </MainLayout>
   );

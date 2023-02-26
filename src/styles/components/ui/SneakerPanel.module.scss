@@ -57,7 +57,7 @@
         img {
             position: absolute;
             bottom: 0px;
-            right: 58px;
+            right: 7px;
             user-select: none;
         }
 
@@ -65,9 +65,42 @@
             font-weight: 700;
             font-size: 307px;
             line-height: 460px;
-            color: #F5CF94;
             user-select: none;
             margin-right: 25px;
+        }
+    }
+
+    .wrapper_3 {
+        position: absolute;
+        z-index: 2;
+        bottom: 15px;
+        margin-left: 42%;
+
+        .sneakers_wrapper {
+            display: flex;
+
+            div {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 65px;
+                height: 65px;
+                border: 2px solid white;
+                border-radius: 15px;
+                cursor: pointer;
+                
+                img {
+                    width: 60px;
+                }
+
+                &:nth-child(2) {
+                    margin: 0 15px;
+                }
+            }
+        }
+
+        .progress_bar {
+            margin-top: 20px;
         }
     }
 }

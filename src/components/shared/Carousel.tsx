@@ -10,13 +10,9 @@ type Props = {
 const Carousel: React.FC<Props> = ({ children }) => {
   const [pages, setPages] = useState<any>([]);
   const [offset, setOffset] = useState(0);
-  const [currentPage, setCurrentPage] = useState(0);
 
   const page_width = 1038;
 
-  useEffect(() => {
-    setCurrentPage(Math.abs(offset / page_width));
-  }, [offset]);
 
   useEffect(() => {
     setPages(
@@ -34,7 +30,6 @@ const Carousel: React.FC<Props> = ({ children }) => {
 
   const handleClickLeft = () => {
     setOffset((currentOffset) => {
-      console.log(currentOffset);
       const newOffset = currentOffset + page_width;
 
       return Math.min(newOffset, 0);

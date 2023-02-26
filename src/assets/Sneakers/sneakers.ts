@@ -10,8 +10,13 @@ import JordanMillitary from "./AirJordan_Millitary.jpg"
 import ForceGradient from "./AirForce_Gradient.jpg"
 import BlazerBlue from "./Blazer_Blue.jpg"
 import Zoom from "./AirZoom.jpg"
+import { StaticImageData } from "next/image";
 
-export default {
+type Images = {
+  [key: string]: StaticImageData
+}
+
+export default<Images>  {
   JordanBlue,
   JordanKaws,
   ForceWhite,
