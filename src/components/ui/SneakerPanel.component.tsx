@@ -2,11 +2,11 @@ import React, { FC, useEffect, useState } from "react";
 
 import ArrowSvg from "./ArrowSvg.component";
 import sneakerPanel from "@/assets/SneakerPanel/sneakerPanel";
+import sneakers from "@/assets/Sneakers/sneakers";
 
-import styles from "@/styles/components/ui/SneakerPanel.module.scss";
 import ProgressBar from "./ProgressBar.component";
 
-import sneakers from "@/assets/Sneakers/sneakers";
+import styles from "@/styles/components/ui/SneakerPanel.module.scss";
 
 type Props = {
   background: string;
@@ -66,14 +66,13 @@ const SneakerPanel: FC<Props> = ({ background }) => {
                   ? `rgb(${textColor[0]}%, ${textColor[1]}%, ${textColor[2]}%)`
                   : "",
             }}
-            onClick={() => setCellNumber(cellNum)}
           >
             <img src={sneakers[Object.keys(sneakers)[cellNum + randomNum]]?.src} alt="sneaker-img" />
           </div>
           ))}
         </div>
         <div className={styles.progress_bar}>
-          <ProgressBar/>
+          <ProgressBar setCellNumber={setCellNumber}/>
         </div>
       </div>
     </div>
