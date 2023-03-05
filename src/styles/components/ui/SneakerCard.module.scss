@@ -1,0 +1,115 @@
+.container {
+    width: 190px;
+    margin-bottom: 20px;
+
+
+    .wrapper_1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 190px;
+        height: 230px;
+        border-radius: 20px;
+        position: relative;
+
+        .mark {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 49px;
+            height: 20px;
+            background: #0077FF;
+            border-radius: 20px 0px;
+            font-weight: 700;
+            font-size: 10px;
+            line-height: 10px;
+        }
+
+        img {
+            width: 170px;
+        }
+    }
+
+    .wrapper_2 {
+        margin-top: 20px;
+
+        .title {
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 22px;
+            color: #000000;
+        }
+
+        .price {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 23px;
+            color: #FD4E61;
+            margin-top: 8px;
+
+            span {
+                text-decoration-line: line-through;
+                color: #11293B;
+                padding-left: 10px;
+            }
+        }
+
+        .colors_wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 15px 0px;
+
+
+            :first-child {
+                width: 71px;
+                height: 25px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba(69, 142, 246, 0.26);
+                border-radius: 30px;
+                font-weight: 700;
+                font-size: 10px;
+                line-height: 10px;
+                color: #458EF6;
+            }
+
+            :last-child {
+                display: flex;
+
+                div {
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    margin-right: 8px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 50px;
+        background: #E7E9EB;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24px;
+        color: #11293B;
+
+        svg {
+            margin-right: 10px;
+        }
+
+    }
+}

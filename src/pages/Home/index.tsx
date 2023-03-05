@@ -6,26 +6,33 @@ import { Sneakers } from "@/types/sneakers";
 
 import SneakerPanel from "@/components/ui/SneakerPanel.component";
 import Carousel from "@/components/shared/Carousel";
+import SneakerCard from "@/components/ui/SneakerCard.component";
+
+import styles from "@/styles/pages/Home.module.scss";
 
 const Home: FC<{ sneakers: Sneakers }> = ({ sneakers }) => {
-  {
-    /*  <div>
-  {sneakers.map((sneaker: Sneakers) => (
-    <div key={sneaker.id}>
-      <div>{sneaker.model}</div>
-      <img src={sneakersImage[sneaker.image].src} alt="sneaker-img" />
-    </div>
-  ))}
-  </div> */
-  }
   return (
     <MainLayout>
-      <Carousel>
-        <SneakerPanel background={"rgb(100%, 89%, 71%)"} />
-        <SneakerPanel background={"rgb(47%, 89%, 59%)"} />
-        <SneakerPanel background={"rgb(96%, 90%, 100%)"} />
-        <SneakerPanel background={"rgb(41%, 92%, 92%)"} />
-      </Carousel>
+      <section>
+        <Carousel>
+          <SneakerPanel background={"rgb(100%, 89%, 71%)"} />
+          <SneakerPanel background={"rgb(47%, 89%, 59%)"} />
+          <SneakerPanel background={"rgb(96%, 90%, 100%)"} />
+          <SneakerPanel background={"rgb(41%, 92%, 92%)"} />
+        </Carousel>
+      </section>
+      <section className={styles.container}>
+        {sneakers.map((sneaker: Sneakers) => (
+          <SneakerCard
+            key={sneaker.id}
+            id={sneaker.id}
+            model={sneaker.model}
+            brend={sneaker.brend}
+            image={`${sneaker.image}`}
+            price={sneaker.price}
+          />
+        ))}
+      </section>
     </MainLayout>
   );
 };

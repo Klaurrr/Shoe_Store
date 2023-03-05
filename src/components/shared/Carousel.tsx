@@ -13,7 +13,6 @@ const Carousel: React.FC<Props> = ({ children }) => {
 
   const page_width = 1038;
 
-
   useEffect(() => {
     setPages(
       Children.map(children, (child) => {

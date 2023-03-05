@@ -13,13 +13,12 @@ type Props = {
 };
 
 const SneakerPanel: FC<Props> = ({ background }) => {
-
   const [cellNumber, setCellNumber] = useState(1);
-  const [randomNum, setRandomNum] = useState(0)
+  const [randomNum, setRandomNum] = useState(0);
 
   useEffect(() => {
-    setRandomNum(Math.floor(Math.random() * 9))
-  }, [])
+    setRandomNum(Math.floor(Math.random() * 9));
+  }, []);
 
   const colorArray = background
     .match(/[-]{0,1}[\d]*[.]{0,1}[\d]+/g)
@@ -57,22 +56,25 @@ const SneakerPanel: FC<Props> = ({ background }) => {
       </div>
       <div className={styles.wrapper_3}>
         <div className={styles.sneakers_wrapper}>
-          {[1, 2, 3].map(cellNum => (
+          {[1, 2, 3].map((cellNum) => (
             <div
-            key={cellNum}
-            style={{
-              background:
-                cellNumber === cellNum && textColor
-                  ? `rgb(${textColor[0]}%, ${textColor[1]}%, ${textColor[2]}%)`
-                  : "",
-            }}
-          >
-            <img src={sneakers[Object.keys(sneakers)[cellNum + randomNum]]?.src} alt="sneaker-img" />
-          </div>
+              key={cellNum}
+              style={{
+                background:
+                  cellNumber === cellNum && textColor
+                    ? `rgb(${textColor[0]}%, ${textColor[1]}%, ${textColor[2]}%)`
+                    : "",
+              }}
+            >
+              <img
+                src={sneakers[Object.keys(sneakers)[cellNum + randomNum]]?.src}
+                alt="sneaker-img"
+              />
+            </div>
           ))}
         </div>
         <div className={styles.progress_bar}>
-          <ProgressBar setCellNumber={setCellNumber}/>
+          <ProgressBar setCellNumber={setCellNumber} />
         </div>
       </div>
     </div>
