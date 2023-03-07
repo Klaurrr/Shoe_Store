@@ -39,8 +39,7 @@ const Home: FC<{ sneakers: Sneakers }> = ({ sneakers }) => {
 
 export const getStaticProps = async () => {
   try {
-    const response = await fetch("http://localhost:3001/sneakers");
-
+    const response = await fetch("http://localhost:3000/api/sneakers");
     const sneakers = await response.json();
 
     return {
