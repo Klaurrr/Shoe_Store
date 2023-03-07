@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 
 import MainLayout from "@/layouts/MainLayout.component";
 
@@ -11,8 +11,6 @@ import SneakerCard from "@/components/ui/SneakerCard.component";
 import styles from "@/styles/pages/Home.module.scss";
 
 const Home: FC<{ sneakers: Sneakers }> = ({ sneakers }) => {
-  console.log(sneakers);
-
   return (
     <MainLayout>
       <section>

@@ -3,6 +3,8 @@ import React, { FC, useEffect, useState } from "react";
 import styles from "@/styles/components/ui/SneakerCard.module.scss";
 import sneakers from "@/assets/Sneakers/sneakers";
 import CartSvg from "./CartSvg.component";
+import { useDispatch, useSelector } from "react-redux";
+import { setBookMarks } from "@/store/sneakersSlice";
 
 type Props = {
   model: string;
@@ -16,6 +18,8 @@ const SneakerCard: FC<Props> = ({ model, brend, image, price, id }) => {
   const [randomNum, setRandomNum] = useState(0);
   const [percent, setPercent] = useState(0);
   const [outlineColor, setOutlineColor] = useState("#000000");
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setRandomNum(Math.floor(Math.random() * 4));
@@ -34,6 +38,20 @@ const SneakerCard: FC<Props> = ({ model, brend, image, price, id }) => {
 
   const generateKey = (pre: string): string => {
     return `${pre}_${new Date().getTime()}`;
+  };
+
+  const handleClick = () => {
+    dispatch(
+      setBookMarks({
+        bookmarks: {
+          model,
+          brend,
+          image,
+          price,
+          id,
+        },
+      })
+    );
   };
 
   return (
@@ -78,7 +96,7 @@ const SneakerCard: FC<Props> = ({ model, brend, image, price, id }) => {
           </div>
         </div>
       </div>
-      <button>
+      <button onClick={() => handleClick()}>
         <CartSvg fill={"#677585"} />
         Add to cart
       </button>
