@@ -11,6 +11,8 @@ import SneakerCard from "@/components/ui/SneakerCard.component";
 import styles from "@/styles/pages/Home.module.scss";
 
 const Home: FC<{ sneakers: Sneakers }> = ({ sneakers }) => {
+  console.log(sneakers);
+
   return (
     <MainLayout>
       <section>
@@ -43,7 +45,9 @@ const Home: FC<{ sneakers: Sneakers }> = ({ sneakers }) => {
 
 export const getStaticProps = async () => {
   try {
-    const response = await fetch("http://localhost:3000/api/sneakers");
+    const response = await fetch(
+      "https://shoe-store-sigma.vercel.app/api/sneakers"
+    );
     const sneakers = await response.json();
 
     return {
