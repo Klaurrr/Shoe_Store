@@ -5,7 +5,7 @@ import MainLayout from "@/layouts/MainLayout.component";
 import { Sneakers } from "@/types/sneakers";
 
 import SneakerPanel from "@/components/ui/SneakerPanel.component";
-import Carousel from "@/components/shared/Carousel";
+import Carousel from "@/components/shared/Carousel.component";
 import SneakerCard from "@/components/ui/SneakerCard.component";
 
 import styles from "@/styles/pages/Home.module.scss";
