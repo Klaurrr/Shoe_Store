@@ -22,16 +22,20 @@ const Home: FC<{ sneakers: Sneakers }> = ({ sneakers }) => {
         </Carousel>
       </section>
       <section className={styles.container}>
-        {sneakers.map((sneaker: Sneakers) => (
-          <SneakerCard
-            key={sneaker.id}
-            id={sneaker.id}
-            model={sneaker.model}
-            brend={sneaker.brend}
-            image={`${sneaker.image}`}
-            price={sneaker.price}
-          />
-        ))}
+        {sneakers ? (
+          sneakers.map((sneaker: Sneakers) => (
+            <SneakerCard
+              key={sneaker.id}
+              id={sneaker.id}
+              model={sneaker.model}
+              brend={sneaker.brend}
+              image={`${sneaker.image}`}
+              price={sneaker.price}
+            />
+          ))
+        ) : (
+          <p>Loading...</p>
+        )}
       </section>
     </MainLayout>
   );
