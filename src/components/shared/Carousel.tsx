@@ -1,8 +1,8 @@
 import { useEffect, useState, Children, cloneElement } from "react";
 
-import styles from "@/styles/components/shared/Carousel.module.scss";
-
 import ArrowSvg from "../ui/ArrowSvg.component";
+
+import styles from "../../styles/components/shared/Carousel.module.scss";
 
 type Props = {
   children: JSX.Element[];
