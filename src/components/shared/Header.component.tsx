@@ -8,8 +8,6 @@ import styles from "@/styles/components/shared/Header.module.scss";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 
-import { Redirect } from "next";
-import Link from "next/link";
 import { Sneakers } from "@/types/sneakers";
 
 const Header: FC = () => {
@@ -23,10 +21,6 @@ const Header: FC = () => {
   const sneakers = useSelector(
     (state: { bookMarks: { bookmarks: Sneakers } }) => state.bookMarks.bookmarks
   );
-
-  useEffect(() => {
-    console.log(sneakers);
-  }, [sneakers]);
 
   const [value, setValue] = useState("");
 
@@ -55,13 +49,15 @@ const Header: FC = () => {
       <div className={styles.wrapper_3}>
         <div className={styles.icons}>
           <img src={icons.user.src} alt="icon-img" />
+          <img src={icons.heart.src} alt="icon-img" />
           <img
-            src={icons.heart.src}
+            src={icons.cart.src}
             alt="icon-img"
-            onClick={() => router.push("/Bookmarks")}
+            onClick={() => router.push("/Cart")}
           />
-
-          <img src={icons.cart.src} alt="icon-img" />
+          {sneakers.length > 0 && (
+            <div className={styles.counter}>{sneakers.length}</div>
+          )}
         </div>
         <div className={styles.currency}>
           <div>

@@ -7,8 +7,10 @@ import MainLayout from "@/layouts/MainLayout.component";
 
 import { Sneakers } from "@/types/sneakers";
 
-const Bookmarks = () => {
-  const sneakers = useSelector((state: any) => state.bookMarks.bookmarks);
+const Cart = () => {
+  const sneakers = useSelector(
+    (state: { bookMarks: { bookmarks: Sneakers } }) => state.bookMarks.bookmarks
+  );
 
   return (
     <MainLayout>
@@ -27,4 +29,4 @@ const Bookmarks = () => {
   );
 };
 
-export default Bookmarks;
+export default Cart;
