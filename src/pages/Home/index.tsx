@@ -31,6 +31,7 @@ const Home: FC<{ sneakers: Sneakers }> = ({ sneakers }) => {
               brend={sneaker.brend}
               image={`${sneaker.image}`}
               price={sneaker.price}
+              action={"Add"}
             />
           ))
         ) : (

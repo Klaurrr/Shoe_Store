@@ -19,7 +19,8 @@ const Header: FC = () => {
   const router = useRouter();
 
   const sneakers = useSelector(
-    (state: { bookMarks: { bookmarks: Sneakers } }) => state.bookMarks.bookmarks
+    (state: { bookMarks: { bookmarks: Sneakers[] } }) =>
+      state.bookMarks.bookmarks
   );
 
   const [value, setValue] = useState("");
@@ -55,7 +56,7 @@ const Header: FC = () => {
             alt="icon-img"
             onClick={() => router.push("/Cart")}
           />
-          {sneakers.length > 0 && (
+          {sneakers?.length > 0 && (
             <div className={styles.counter}>{sneakers.length}</div>
           )}
         </div>
