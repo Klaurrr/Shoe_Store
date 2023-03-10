@@ -1,14 +1,15 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
+import { useRouter } from "next/router";
+
+import { useSelector } from "react-redux";
 
 import BaseForButton from "../ui/BaseForButton.component";
 
 import icons from "@/assets/Header/icons";
 
-import styles from "@/styles/components/shared/Header.module.scss";
-import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
-
 import { Sneakers } from "@/types/sneakers";
+
+import styles from "@/styles/components/shared/Header.module.scss";
 
 const Header: FC = () => {
   const [currency, setCurrency] = useState({

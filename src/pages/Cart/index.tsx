@@ -29,7 +29,7 @@ const Cart = () => {
                 image={`${item.image}`}
                 price={item.price}
                 id={item.id}
-                action={"Delete"}
+                action={"Remove"}
               />
             ))}
           </div>

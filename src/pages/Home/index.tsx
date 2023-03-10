@@ -10,7 +10,7 @@ import SneakerCard from "@/components/ui/SneakerCard.component";
 
 import styles from "@/styles/pages/Home.module.scss";
 
-const Home: FC<{ sneakers: Sneakers }> = ({ sneakers }) => {
+const Home: FC<{ sneakers: Sneakers[] }> = ({ sneakers }) => {
   return (
     <MainLayout>
       <section>

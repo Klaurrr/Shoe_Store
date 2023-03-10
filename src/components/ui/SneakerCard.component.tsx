@@ -1,34 +1,41 @@
 import React, { FC, useEffect, useState } from "react";
 
-import styles from "@/styles/components/ui/SneakerCard.module.scss";
-import sneakers from "@/assets/Sneakers/sneakers";
+import GenerateKey from "../shared/GenerateKey";
 import CartSvg from "./CartSvg.component";
-import { useDispatch, useSelector } from "react-redux";
-import { setBookMarks } from "@/store/sneakersSlice";
 import CrossSvg from "./CrossSvg.component";
 
-type Props = {
-  model: string;
-  brend: string;
-  image: string;
-  price: number;
-  id: number;
-  action: string;
-};
+import sneakers from "@/assets/Sneakers/sneakers";
 
-const SneakerCard: FC<Props> = ({ model, brend, image, price, id, action }) => {
+import { useDispatch, useSelector } from "react-redux";
+import { filterBookMarks, setBookMarks } from "@/store/sneakersSlice";
+
+import { Sneakers } from "@/types/sneakers";
+
+import styles from "@/styles/components/ui/SneakerCard.module.scss";
+
+const SneakerCard: FC<Sneakers> = ({
+  model,
+  brend,
+  image,
+  price,
+  id,
+  action,
+}) => {
   const [randomNum, setRandomNum] = useState(0);
   const [percent, setPercent] = useState(0);
   const [outlineColor, setOutlineColor] = useState("#000000");
-
-  const [isAdded, setIsAdded] = useState(false);
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     setRandomNum(Math.floor(Math.random() * 4));
     setPercent(Math.floor(Math.random() * (35 - 3) + 3));
   }, []);
+
+  const dispatch = useDispatch();
+
+  const sneakersStore = useSelector(
+    (state: { bookMarks: { bookmarks: Sneakers[] } }) =>
+      state.bookMarks.bookmarks
+  );
 
   const oldPrice = (price * percent) / 100;
 
@@ -39,10 +46,6 @@ const SneakerCard: FC<Props> = ({ model, brend, image, price, id, action }) => {
     "(41%, 92%, 92%)",
     "(247,194,155)",
   ];
-
-  const generateKey = (pre: string): string => {
-    return `${pre}_${new Date().getTime()}`;
-  };
 
   const addHandler = () => {
     dispatch(
@@ -56,17 +59,15 @@ const SneakerCard: FC<Props> = ({ model, brend, image, price, id, action }) => {
         },
       })
     );
-
-    setIsAdded(true);
   };
 
-  // const removeHandler = () => {
-  //   console.log("Удалить");
-  // };
-
-  function removeHandler(this: any) {
-    console.log(model);
-  }
+  const removeHandler = () => {
+    dispatch(
+      filterBookMarks({
+        bookmarks: sneakersStore.filter((item) => item.id !== id),
+      })
+    );
+  };
 
   return (
     <div className={styles.container} key={id}>
@@ -97,7 +98,7 @@ const SneakerCard: FC<Props> = ({ model, brend, image, price, id, action }) => {
             {["#000000", "#E61800", "#E67100", "#E6C400", "#70B200"].map(
               (color) => (
                 <div
-                  key={generateKey(color)}
+                  key={GenerateKey(color)}
                   style={{
                     background: color,
                     outline: outlineColor === color ? "1px solid gray" : "none",
@@ -112,11 +113,18 @@ const SneakerCard: FC<Props> = ({ model, brend, image, price, id, action }) => {
       </div>
       <button
         onClick={() =>
-          action === "Add" && !isAdded ? addHandler() : removeHandler()
+          action === "Add" &&
+          sneakersStore.filter((item) => item.id === id).length === 0
+            ? addHandler()
+            : action === "Remove" && removeHandler()
         }
       >
         {action === "Add" ? <CartSvg /> : <CrossSvg />}
-        {action === "Add" ? (isAdded ? "Added" : "Add to cart") : "Remove"}
+        {action === "Add"
+          ? sneakersStore.filter((item) => item.id === id).length > 0
+            ? "Added"
+            : "Add to cart"
+          : "Remove"}
       </button>
     </div>
   );
