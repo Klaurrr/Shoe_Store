@@ -9,8 +9,16 @@ import Carousel from "@/components/shared/Carousel.component";
 import SneakerCard from "@/components/ui/SneakerCard.component";
 
 import styles from "@/styles/pages/Home.module.scss";
+import { useDispatch } from "react-redux";
+import { setSneakersInit } from "@/store/sneakersInitSlice";
 
 const Home: FC<{ sneakers: Sneakers[] }> = ({ sneakers }) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setSneakersInit([sneakers]));
+  }, [sneakers]);
+
   return (
     <MainLayout>
       <section>
@@ -21,7 +29,6 @@ const Home: FC<{ sneakers: Sneakers[] }> = ({ sneakers }) => {
           <SneakerPanel background={"rgb(41%, 92%, 92%)"} />
         </Carousel>
       </section>
-      <section></section>
       <section className={styles.container}>
         {sneakers ? (
           sneakers.map((sneaker: Sneakers) => (
