@@ -21,6 +21,7 @@ const Home: FC<{ sneakers: Sneakers[] }> = ({ sneakers }) => {
           <SneakerPanel background={"rgb(41%, 92%, 92%)"} />
         </Carousel>
       </section>
+      <section></section>
       <section className={styles.container}>
         {sneakers ? (
           sneakers.map((sneaker: Sneakers) => (
