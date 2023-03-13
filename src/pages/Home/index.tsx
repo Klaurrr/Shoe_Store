@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, useLayoutEffect } from "react";
 
 import MainLayout from "@/layouts/MainLayout.component";
 
@@ -9,15 +9,20 @@ import Carousel from "@/components/shared/Carousel.component";
 import SneakerCard from "@/components/ui/SneakerCard.component";
 
 import styles from "@/styles/pages/Home.module.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setSneakersInit } from "@/store/sneakersInitSlice";
 
 const Home: FC<{ sneakers: Sneakers[] }> = ({ sneakers }) => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(setSneakersInit([sneakers]));
+  useLayoutEffect(() => {
+    dispatch(setSneakersInit(sneakers));
   }, [sneakers]);
+
+  const data = useSelector(
+    (state: { sneakersInit: { sneakers: Sneakers[] } }) =>
+      state.sneakersInit.sneakers
+  );
 
   return (
     <MainLayout>
@@ -30,8 +35,8 @@ const Home: FC<{ sneakers: Sneakers[] }> = ({ sneakers }) => {
         </Carousel>
       </section>
       <section className={styles.container}>
-        {sneakers ? (
-          sneakers.map((sneaker: Sneakers) => (
+        {data?.length > 0 ? (
+          data.map((sneaker: Sneakers) => (
             <SneakerCard
               key={sneaker.id}
               id={sneaker.id}
@@ -43,7 +48,9 @@ const Home: FC<{ sneakers: Sneakers[] }> = ({ sneakers }) => {
             />
           ))
         ) : (
-          <p>Loading...</p>
+          <>
+            <p>Empty, try research</p>
+          </>
         )}
       </section>
     </MainLayout>

@@ -9,7 +9,7 @@ const sneakersInitSlice = createSlice({
   initialState,
   reducers: {
     setSneakersInit(state, action) {
-      state.sneakers = action.payload[0];
+      state.sneakers = action.payload;
     },
   },
 });
