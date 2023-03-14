@@ -1,44 +1,51 @@
+import { useCallback, useEffect, useRef } from "react";
+
+import { useDispatch } from "react-redux";
 import { setSneakersInit } from "@/store/sneakersInitSlice";
+
 import { Sneakers } from "@/types/sneakers";
-import { useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
+
+import initialSneakers from "db.json";
 
 const Input = () => {
-  const ref = useRef<any>(null);
+  const ref = useRef<HTMLInputElement | null>(null);
 
-  const initialSneakers = useSelector(
-    (state: { sneakersInit: { sneakers: Sneakers[] } }) =>
-      state.sneakersInit.sneakers
-  );
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const handler = (event: KeyboardEvent) => {
+  const { sneakers } = initialSneakers;
+
+  const handleEnter = useCallback(
+    (event: KeyboardEvent) => {
       if (event.key === "Enter") {
         event.preventDefault();
-        console.log("handler");
-        const newArray = initialSneakers.filter((item) =>
-          item.model.toLowerCase().includes(ref.current?.value.toLowerCase())
+        const newArray: Sneakers[] = sneakers.filter((item) =>
+          item.model
+            .toLowerCase()
+            .includes(ref?.current?.value.toLowerCase() ?? "")
         );
         dispatch(setSneakersInit(newArray));
       }
-    };
+    },
+    [dispatch, sneakers, ref]
+  );
 
-    const handleFocus = () => {
-      window.addEventListener("keydown", handler);
-    };
-    const handleBlur = () => {
-      window.removeEventListener("keydown", handler);
-    };
+  const handleFocus = useCallback(() => {
+    window.addEventListener("keydown", handleEnter);
+  }, [handleEnter]);
 
-    ref.current.addEventListener("focus", handleFocus);
-    ref.current.addEventListener("blur", handleBlur);
+  const handleBlur = useCallback(() => {
+    window.removeEventListener("keydown", handleEnter);
+  }, [handleEnter]);
+
+  useEffect(() => {
+    ref.current?.addEventListener("focus", handleFocus);
+    ref.current?.addEventListener("blur", handleBlur);
 
     return () => {
       ref.current?.removeEventListener("focus", handleFocus);
       ref.current?.removeEventListener("blur", handleBlur);
     };
-  }, [initialSneakers]);
+  }, [handleBlur, handleFocus]);
 
   return <input ref={ref} type="text" placeholder="Search" />;
 };

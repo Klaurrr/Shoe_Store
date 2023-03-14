@@ -4,13 +4,13 @@ import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 
 import BaseForButton from "../ui/BaseForButton.component";
+import Input from "../ui/Input.component";
 
 import icons from "@/assets/Header/icons";
 
 import { Sneakers } from "@/types/sneakers";
 
 import styles from "@/styles/components/shared/Header.module.scss";
-import Input from "../ui/Input.component";
 
 const Header: FC = () => {
   const [currency, setCurrency] = useState({
