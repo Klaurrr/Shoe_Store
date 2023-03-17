@@ -96,5 +96,19 @@
       "price": 22000,
       "color": "blue"
     }
+  ],
+  "region": [
+    "RU", 
+    "USA",
+    "GBR",
+    "DEU",
+    "CHN"
+  ],
+  "forex": [
+    "RUB",
+    "USD",
+    "EUR",
+    "CNY",
+    "GBP"
   ]
 }

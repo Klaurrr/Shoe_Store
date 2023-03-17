@@ -95,38 +95,5 @@
                 margin-left: 6px;
             }
         }
-
-        .currency {
-            display: flex;
-            align-items: center;
-
-            div {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                background: #E7E9EB;
-                border-radius: 25px;
-
-                width: 70px;
-                height: 30px;
-
-                cursor: pointer;
-
-                &:first-child {
-                    margin-right: 10px;
-                }
-
-                img {
-                    margin: 0px 0px 5px 6px;
-                }
-
-                p {
-                    font-weight: 400;
-                    font-size: 12px;
-                    line-height: 15px;
-                }
-            }
-        }
     }
 }
