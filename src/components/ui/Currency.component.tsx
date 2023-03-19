@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentCurrency } from "@/store/slices/currencySlice";
@@ -10,6 +10,7 @@ import data from "db.json";
 import icons from "@/assets/Header/icons";
 
 import styles from "@/styles/components/ui/Currency.module.scss";
+import UseOutsideClick from "@/hooks/UseOutsideClick";
 
 const Currency = () => {
     const currentCurrency = useSelector(
@@ -17,6 +18,9 @@ const Currency = () => {
     );
 
     const dispatch = useDispatch();
+
+    const regionRef = useRef<HTMLDivElement | null>(null);
+    const forexRef = useRef<HTMLDivElement | null>(null);
 
     const [currency, setCurrency] = useState({
         region: "RUS",
@@ -53,6 +57,8 @@ const Currency = () => {
         }
     };
 
+    UseOutsideClick([regionRef, forexRef], isOpen, setIsOpen);
+
     return (
         <div className={styles.container}>
             <div className={styles.currency}>
@@ -74,6 +80,7 @@ const Currency = () => {
                 </div>
             </div>
             <div
+                ref={regionRef}
                 className={styles.drop_down}
                 style={{
                     left: "0px",
@@ -91,6 +98,7 @@ const Currency = () => {
                 ))}
             </div>
             <div
+                ref={forexRef}
                 className={styles.drop_down}
                 style={{
                     right: "0px",
