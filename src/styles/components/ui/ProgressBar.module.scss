@@ -1,21 +1,23 @@
 .container {
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 
-    .wrapper {
-        height: 3px;
-        width: 50px;
-        background-color: rgba(128, 128, 128, 0.2);
-        border-radius: 20px;
+	.wrapper {
+		width: 50px;
+		height: 3px;
 
-        &:nth-child(2) {
-            margin: 0 10px;
-        }
+		border-radius: 20px;
+		background-color: rgb(128 128 128 / 20%);
 
-        .bar {
-            height: 100%;
-            background: #11293B;
-            border-radius: 20px;
-        }
-    }
+		&:nth-child(2) {
+			margin: 0 10px;
+		}
+
+		.bar {
+			height: 100%;
+
+			border-radius: 20px;
+			background: #11293B;
+		}
+	}
 }

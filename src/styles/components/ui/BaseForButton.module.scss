@@ -1,14 +1,17 @@
 .background {
-    display: inline-flex;
-    align-items: center;
-    background: #E7E9EB;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: 400;
-    font-size: 18px;
-    user-select: none;
+	display: inline-flex;
+	align-items: center;
 
-    img {
-        margin: 0px 10px 0px 20px;
-    }
+	cursor: pointer;
+	user-select: none;
+
+	border-radius: 25px;
+	background: #E7E9EB;
+
+	font-size: 18px;
+	font-weight: 400;
+
+	img {
+		margin: 0 10px 0 20px;
+	}
 }

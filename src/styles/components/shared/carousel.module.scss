@@ -1,55 +1,64 @@
 .container {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    width: 1038px;
-    margin: 0 auto;
+	position: relative;
+
+	display: flex;
+	justify-content: center;
+
+	width: 1038px;
+	margin: 0 auto;
 
 
-    .window {
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-        overflow: hidden;
-        border-radius: 40px;
+	.window {
+		overflow: hidden;
+
+		width: 100%;
+		height: 100%;
+
+		border-radius: 10px;
+		border-radius: 40px;
 
 
-        .pages_container {
-            display: flex;
-            height: 100%;
+		.pages_container {
+			display: flex;
 
-            transition: translate;
-            transition-property: transform;
-            transition-duration: 300ms;
-            transition-timing-function: ease-in-out;
-        }
-    }
+			height: 100%;
 
-    .arrows {
-        div {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: absolute;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            background-color: #FFFFFF;
-            cursor: pointer;
-            top: 40%;
-            box-shadow: 0px 4px 50px 2px rgba(34, 60, 80, 0.25);
+			transition: translate;
+			transition-timing-function: ease-in-out;
+			transition-duration: 300ms;
+			transition-property: transform;
+		}
+	}
 
-            &:first-child {
-                left: -30px;
+	.arrows {
+		div {
+			position: absolute;
+			top: 40%;
 
-                svg {
-                    transform: rotate(180deg);
-                }
-            }
+			display: flex;
+			align-items: center;
+			justify-content: center;
 
-            &:last-child {
-                right: -30px
-            }
-        }
-    }
+			width: 60px;
+			height: 60px;
+
+			cursor: pointer;
+
+			border-radius: 50%;
+			background-color: #FFF;
+			box-shadow: 0 4px 50px 2px rgb(34 60 80 / 25%);
+
+			&:first-child {
+				left: -30px;
+
+				svg {
+					transform: rotate(180deg);
+				}
+			}
+
+			&:last-child {
+				right: -30px
+			}
+		}
+	}
 }
