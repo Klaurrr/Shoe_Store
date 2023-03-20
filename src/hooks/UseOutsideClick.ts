@@ -12,23 +12,28 @@ const UseOutsideClick = (
 ): void => {
     useEffect(() => {
         const handler = (e: MouseEvent): void => {
-            console.log("Gg");
-            if (!ref[0].current) return;
-            if (!ref[0].current.contains(e.target as Node)) {
+            if (
                 isOpen.region &&
-                    setIsOpen((prev: isOpen) => ({
-                        ...prev,
-                        region: false,
-                    }));
+                ref[0].current &&
+                !ref[0].current.contains(e.target as Node)
+            ) {
+                setIsOpen((prev: isOpen) => ({
+                    ...prev,
+                    region: false,
+                }));
             }
-            if (!ref[1].current) return;
-            if (!ref[1].current.contains(e.target as Node)) {
+            if (
                 isOpen.forex &&
-                    setIsOpen((prev: isOpen) => ({ ...prev, forex: false }));
+                ref[1].current &&
+                !ref[1].current.contains(e.target as Node)
+            ) {
+                setIsOpen((prev: isOpen) => ({ ...prev, forex: false }));
             }
         };
 
-        document.addEventListener("mousedown", handler);
+        if (isOpen.region || isOpen.forex) {
+            document.addEventListener("mousedown", handler);
+        }
 
         return () => {
             document.removeEventListener("mousedown", handler);
