@@ -20,9 +20,6 @@ const Header: FC = () => {
         (state: { bookMarks: { bookmarks: Sneakers[] } }) =>
             state.bookMarks.bookmarks
     );
-    useEffect(() => {
-        console.log("Rerender");
-    }, []);
 
     return (
         <header className={styles.container}>
